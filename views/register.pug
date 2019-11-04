@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1.mt-3 Register
+    form(method='POST', action='/users/register')
+        #form-group.pt-2
+            label Name:
+            input.form-control(name='name' type="text")
+        #form-group.pt-4
+            label Email:
+            input.form-control(name='email' type="text")
+        #form-group.pt-4
+            label Username:
+            input.form-control(name='username' type="text")
+        #form-group.pt-4
+            label Password:
+            input.form-control(name='password' type="password")
+        #form-group.pt-4
+            label Confirm Password:
+            input.form-control(name='password2' type="password")
+        input.btn.btn-primary.mt-5(type='submit', value='Submit')

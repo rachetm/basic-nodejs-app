@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    h1.mt-3 #{heading}
+    ol.list-group.pt-2
+        each article in articles
+            li.list-group-item
+                a(href="/articles/" + article._id)= article.title
+        else
+            p(style='color: grey') There are no articles to show

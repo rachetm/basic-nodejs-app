@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1.mt-5= article.title
+    h6.pl-5 -Written by #{author}
+    p= article.body
+    hr
+    if user
+        if user.id == article.author
+            a.btn.btn-primary(href='/articles/edit/' + article.id) Edit
+            //- a.btn.btn-danger.ml-3(href='/article/delete/' + article._id) Delete
+            a.btn.btn-danger.ml-3#delete(href='#', data-id=article._id) Delete
