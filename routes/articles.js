@@ -34,11 +34,11 @@ router.get('/:id', (req,res) => {
     Article.findById(req.params.id, (err, article) => {
             // res.send({"articles": {1 : article}});
         User.findById(article.author, (err, user) => {
-            // console.log(user.id);
-            res.render('article', {
-                article: article,
-                author: user.name
-            });
+            console.log(user.id);
+            // res.render('article', {
+            //     article: article,
+            //     author: user.name
+            // });
         });
     });
 });
