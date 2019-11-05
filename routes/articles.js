@@ -7,6 +7,12 @@ let User = require('../models/user');
 
 const { check, validationResult } = require('express-validator');
 
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
 router.get('/', (req, res) => {
     Article.find({}, (err, articles) => {
         if(err){
