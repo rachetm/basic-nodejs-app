@@ -1,2 +1,2 @@
 # basic-nodejs-app
-A simple node application
+A simple node.js application
