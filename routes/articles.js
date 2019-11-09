@@ -30,15 +30,21 @@ router.get('/add', ensureAuthenticated, (req, res) => res.render('add_article', 
     heading: "Add Article"
 }));
 
+// var ObjectId = require('mongodb').ObjectID;
+
 router.get('/:id', (req,res) => {
+    // console.log(req.params.id);
+    // let id = ObjectId(req.params.id);
     Article.findById(req.params.id, (err, article) => {
             // res.send({"articles": {1 : article}});
+            // console.log(article.id);
+            // let uid = ObjectId(article.id);
         User.findById(article.author, (err, user) => {
-            console.log(user.id);
-            // res.render('article', {
-            //     article: article,
-            //     author: user.name
-            // });
+            // console.log(user.id);
+            res.render('article', {
+                article: article,
+                author: user.name
+            });
         });
     });
 });
@@ -101,7 +107,7 @@ router.post('/edit/:id', (req,res) => {
 
     article.title = req.body.title;
     article.author_id = req.user._id;
-    article.author = req.user.name;
+    article.author = req.user._id;
     article.body = req.body.body;
 
     let query = {_id:req.params.id};
